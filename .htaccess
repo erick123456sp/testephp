@@ -1,40 +1,5 @@
-# php -- BEGIN cPanel-generated handler, do not edit
-# Set the “ea-php81” package as the default “PHP” programming language.
-<IfModule mime_module>
-  AddHandler application/x-httpd-ea-php81___lsphp .php .php8 .phtml
-</IfModule>
 
-#Order Deny, Allow
-#Allow FROM all
-
-#<IfModule mod_rewrite.c>
-#    RewriteEngine On
-#    RewriteBase /
-
-    # Please DO NOT edit below.
-#    RewriteRule ^index\.php$ - [L]
-#    RewriteCond %{REQUEST_FILENAME} !-f
-#    RewriteCond %{REQUEST_FILENAME} !-d
-
-    # For root installations.
-#    RewriteRule . index.php [L]
-
-    # If you host files in a subfolder, comment above line.
-    # Uncomment below line and change "host-path" with your subfolder name.
-    #RewriteRule . host-path/index.php [L]
-
-    # NOTE: You have to rename this file as ".htaccess" to run your site.
-    # Please note that "." files will be hidden. May need restarting apache also.
-    # Visit: https://www.rndvn.com/framework and get more support.
-#</IfModule>
-
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
-RewriteBase /
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.php [L]
-</IfModule>
-# php -- END cPanel-generated handler, do not edit
+rewriteEngine on
+rewriteCond %{RESQUEST_FILENAME} !-f
+rewriteCond %{RESQUEST_FILENAME} !-d
+rewriteRule ^(.*)$ index2.php [NC,L,QSA]
